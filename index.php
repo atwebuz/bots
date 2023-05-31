@@ -4,8 +4,17 @@ include 'Telegram.php';
 
 $telegram = new Telegram('6077714195:AAG6CEXyLZjuBU08G2H5-GNr_-AE7KjVhDM');
 
-$chat_id = $telegram->ChatID();
-$text = $telegram->Text();
+$data = $telegram->getData();
+$telegram->sendMessage([
+    'chat_id' => $telegram->ChatID(),
+    'text' => json_encode($data, JSON_PRETTY_PRINT)
+]);
+
+$text = $data['message']['text'];
+$chat_id = $data['message']['chat']['id'];
+
+// $chat_id = $telegram->ChatID();
+// $text = $telegram->Text();
 
 // file_put_contents('users/step.txt', '1');
 // $stepFile = file_get_contents('users/step.txt');

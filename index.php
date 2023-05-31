@@ -7,9 +7,9 @@ $telegram = new Telegram('6077714195:AAG6CEXyLZjuBU08G2H5-GNr_-AE7KjVhDM');
 $chat_id = $telegram->ChatID();
 $text = $telegram->Text();
 
-file_put_contents('users/step.txt', '1');
-$stepFile = file_get_contents('users/step.txt');
-print $stepFile;
+// file_put_contents('users/step.txt', '1');
+// $stepFile = file_get_contents('users/step.txt');
+// print $stepFile;
 
 $orderTypes = [
     'Laccetti 15000$',
@@ -30,7 +30,16 @@ switch ($text){
         break;
     default:
         if (in_array($text, $orderTypes)){
+            file_put_contents('users/mass.txt', $text);
                 askContact();
+        }else{
+            switch(file_get_contents('users/step.txt')){
+                case 'phone':
+                file_put_contents('users/phone.txt', $text);
+                showDeliveryType();
+                    break;
+            }
+            
         }
         break;
 }
@@ -84,6 +93,8 @@ function showOrder(){
 function askContact() {
     global $telegram, $chat_id;
 
+    file_put_contents('users/step.txt', 'phone');
+
     $option = array(
         array($telegram->buildKeyboardButton("☎️ Kontakt yuborish", true)),
     );
@@ -91,4 +102,8 @@ function askContact() {
    
     $content = array('chat_id' => $chat_id, 'reply_markup' => $keyb, 'text' =>  'Siz ushbu mashinani tanladingiz!!!');
     $telegram->sendMessage($content);
+}
+
+function showDeliveryType(){
+    
 }

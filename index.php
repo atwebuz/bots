@@ -3,6 +3,9 @@
 include 'Telegram.php';
 
 $telegram = new Telegram('6077714195:AAG6CEXyLZjuBU08G2H5-GNr_-AE7KjVhDM');
+$fileFath = 'users/stap.txt';
+
+
 $data = $telegram->getData();
 $message = $data['message'];
 // $telegram->sendMessage([
@@ -34,6 +37,17 @@ switch ($text){
     case "👨‍💻 Buyurtma berish":
         showOrder();
         break;
+    case "Orqaga":
+        switch(file_get_contents($fileFath)){
+          case 'start':
+            break;
+            case 'order':
+                showStart();
+                break;
+
+
+        }
+        break;    
     default:
         if (in_array($text, $orderTypes)){
             file_put_contents('users/mass.txt', $text);
@@ -59,6 +73,7 @@ switch ($text){
 function showStart(){
     global $telegram, $chat_id;
 
+    file_put_contents('users/stap.txt', 'start');
     $option = array(
         //First row
         array($telegram->buildKeyboardButton("🗣 Batafsil malumot")), 
@@ -83,8 +98,9 @@ function showAbout(){
 }
 
 function showOrder(){
-    global $telegram, $chat_id;
+    global $telegram, $chat_id, $fileFath;
 
+    file_put_contents($fileFath, 'order');
     $option = array(
         //First row
         array($telegram->buildKeyboardButton("Laccetti 15000$")),
@@ -93,7 +109,9 @@ function showOrder(){
         //Third row
         array($telegram->buildKeyboardButton("Spark 7300$")),
         //Fourth row 
-        array($telegram->buildKeyboardButton("Cobalt 8300$"))
+        array($telegram->buildKeyboardButton("Cobalt 8300$")).
+        // back
+        array($telegram->buildKeyboardButton("Orqaga"))
     );
     $keyb = $telegram->buildKeyBoard($option, $onetime=true,$resize=true);
    
@@ -109,7 +127,7 @@ function askContact() {
     file_put_contents('users/step.txt', 'phone');
 
     $option = array(
-        array($telegram->buildKeyboardButton("☎️ Kontakt yuborish", true)),
+        array($telegram->buildKeyboardButton("☎️ Kontakt yuborish", $request_contact = true)),
     );
     $keyb = $telegram->buildKeyBoard($option, $onetime=true,$resize=true);
    
@@ -120,3 +138,4 @@ function askContact() {
 function showDeliveryType(){
     
 }
+

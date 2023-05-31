@@ -24,33 +24,34 @@ if ($text == '/start'){
 
     $content = array('chat_id' => $chat_id, 'reply_markup' => $keyb, 'text' =>  'Biz bilan boling va yetuk marralarga erishing.');
     $telegram->sendMessage($content);
-}elseif ($text == '🗣 Batafsil malumot'){
-    $content = array('chat_id' => $chat_id,  'text' =>  "Biz xaqimizda malumot. <a href='https://telegra.ph/Biz-xaqimizda-05-31'>Havolani ko'rish</a>", "parse_mode" => "html");
-    $telegram->sendMessage($content);
 }
-elseif ($text == "👨‍💻 Buyurtma berish"){
-    $option = array(
-        //First row
-        array($telegram->buildKeyboardButton("Laccetti 15000$")),
-        //Second row 
-        array($telegram->buildKeyboardButton("Matiz 4900$")), 
-        //Third row
-        array($telegram->buildKeyboardButton("Spark 7300$")),
-        //Fourth row 
-        array($telegram->buildKeyboardButton("Cobalt 8300$"))
-    );
-    $keyb = $telegram->buildKeyBoard($option, $onetime=true,$resize=true);
+// elseif ($text == '🗣 Batafsil malumot'){
+//     $content = array('chat_id' => $chat_id,  'text' =>  "Biz xaqimizda malumot. <a href='https://telegra.ph/Biz-xaqimizda-05-31'>Havolani ko'rish</a>", "parse_mode" => "html");
+//     $telegram->sendMessage($content);
+// }
+// elseif ("👨‍💻 Buyurtma berish"){
+//     $option = array(
+//         //First row
+//         array($telegram->buildKeyboardButton("Laccetti 15000$")),
+//         //Second row 
+//         array($telegram->buildKeyboardButton("Matiz 4900$")), 
+//         //Third row
+//         array($telegram->buildKeyboardButton("Spark 7300$")),
+//         //Fourth row 
+//         array($telegram->buildKeyboardButton("Cobalt 8300$"))
+//     );
+//     $keyb = $telegram->buildKeyBoard($option, $onetime=true,$resize=true);
    
-    $content = array('chat_id' => $chat_id, 'reply_markup' => $keyb, 'text' =>  'Buyurtma berish uchun avtomabil turini tanlang !!!');
-    $telegram->sendMessage($content);
-}
-elseif ($text == 'Laccetti 15000$'){
+//     $content = array('chat_id' => $chat_id, 'reply_markup' => $keyb, 'text' =>  'Buyurtma berish uchun avtomabil turini tanlang !!!');
+//     $telegram->sendMessage($content);
+// }
+// elseif ($text == 'Laccetti 15000$'){
 
-    $option = array(
-        array($telegram->buildKeyboardButton("Raqamni jonatish", request_contact: true)),
-    );
-    $keyb = $telegram->buildKeyBoard($option, $onetime=true,$resize=true);
+//     $option = array(
+//         array($telegram->buildKeyboardButton("Raqamni jonatish", request_contact: true)),
+//     );
+//     $keyb = $telegram->buildKeyBoard($option, $onetime=true,$resize=true);
    
-    $content = array('chat_id' => $chat_id, 'reply_markup' => $keyb, 'text' =>  "Hajm tanlandi endi telefon raqamingizni yuboring");
-    $telegram->sendMessage($content);
-}
+//     $content = array('chat_id' => $chat_id, 'reply_markup' => $keyb, 'text' =>  "Hajm tanlandi endi telefon raqamingizni yuboring");
+//     $telegram->sendMessage($content);
+// }

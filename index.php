@@ -12,16 +12,16 @@ if ($text == '/start'){
 
     $option = array(
         //First row
-        array($telegram->buildKeyboardButton("Button 1"), $telegram->buildKeyboardButton("Button 2")), 
+        array($telegram->buildKeyboardButton("Button 1")), 
         //Second row 
-        array($telegram->buildKeyboardButton("Button 3"), $telegram->buildKeyboardButton("Button 4"), $telegram->buildKeyboardButton("Button 5"))
+        array($telegram->buildKeyboardButton("Button 3"))
     );
-    $keyb = $telegram->buildKeyBoard($option, $onetime=false);
+    $keyb = $telegram->buildKeyBoard($option, $onetime=true,$resize=true);
    
 
-    $content = array('chat_id' => $chat_id,  'text' =>  'Assalomu aleykum auto shop botiga xush kelibsiz !!!');
+    $content = array('chat_id' => $chat_id,  'text' =>  '🗣 Batafsil malumot');
     $telegram->sendMessage($content);
 
-    $content = array('chat_id' => $chat_id, 'reply_markup' => $keyb, 'text' =>  'Biz bilan boling va yetuk marralarga erishing.');
+    $content = array('chat_id' => $chat_id, 'reply_markup' => $keyb, 'text' =>  '👨‍💻 Buyurtma berish');
     $telegram->sendMessage($content);
 }

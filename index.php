@@ -16,7 +16,7 @@ if ($text == '/start'){
         //Second row 
         array($telegram->buildKeyboardButton("👨‍💻 Buyurtma berish"))
     );
-    $keyb = $telegram->buildKeyBoard($option, $onetime=false,$resize=true);
+    $keyb = $telegram->buildKeyBoard($option, $onetime=true,$resize=true);
    
 
     $content = array('chat_id' => $chat_id,  'text' =>  'Assalomu aleykum auto shop botiga xush kelibsiz !!!');

@@ -45,11 +45,11 @@ elseif ("👨‍💻 Buyurtma berish"){
     $content = array('chat_id' => $chat_id, 'reply_markup' => $keyb, 'text' =>  'Buyurtma berish uchun avtomabil turini tanlang !!!');
     $telegram->sendMessage($content);
 }
-elseif ("Laccetti 15000$"){
+elseif ($text == "Laccetti 15000$"){
     $option = array(
-        array($telegram->buildKeyboardButton("Kontakt yuborish")),
+        array($telegram->buildKeyboardButton("☎️ Kontakt yuborish")),
     );
-    $keyb = $telegram->buildKeyBoard($option, $onetime=true,$resize=true);
+    $keyb = $telegram->buildKeyBoard($option, $onetime=false,$resize=true);
    
     $content = array('chat_id' => $chat_id, 'reply_markup' => $keyb, 'text' =>  'Siz Lacetti tanladingiz!!!');
     $telegram->sendMessage($content);

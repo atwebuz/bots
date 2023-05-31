@@ -28,7 +28,7 @@ if ($text == '/start'){
     $content = array('chat_id' => $chat_id,  'text' =>  "Biz xaqimizda malumot. <a href='https://telegra.ph/Biz-xaqimizda-05-31'>Havolani ko'rish</a>", "parse_mode" => "html");
     $telegram->sendMessage($content);
 }
-elseif ($text == '👨‍💻 Buyurtma berish'){
+elseif ('👨‍💻 Buyurtma berish'){
     $option_1 = array(
         //First row
         array($telegram->buildKeyboardButton("button 1")),

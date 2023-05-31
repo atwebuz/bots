@@ -29,7 +29,7 @@ elseif ($text == '🗣 Batafsil malumot'){
     $content = array('chat_id' => $chat_id,  'text' =>  "Biz xaqimizda malumot. <a href='https://telegra.ph/Biz-xaqimizda-05-31'>Havolani ko'rish</a>", "parse_mode" => "html");
     $telegram->sendMessage($content);
 }
-elseif ("👨‍💻 Buyurtma berish"){
+elseif ($text == '👨‍💻 Buyurtma berish'){
     $option = array(
         //First row
         array($telegram->buildKeyboardButton("Laccetti 15000$")),
@@ -45,11 +45,11 @@ elseif ("👨‍💻 Buyurtma berish"){
     $content = array('chat_id' => $chat_id, 'reply_markup' => $keyb, 'text' =>  'Buyurtma berish uchun avtomabil turini tanlang !!!');
     $telegram->sendMessage($content);
 }
-elseif ($text == "Laccetti 15000$"){
+elseif ($text == 'Laccetti 15000$'){
     $option = array(
         array($telegram->buildKeyboardButton("☎️ Kontakt yuborish")),
     );
-    $keyb = $telegram->buildKeyBoard($option, $onetime=false,$resize=true);
+    $keyb = $telegram->buildKeyBoard($option, $onetime=true,$resize=true);
    
     $content = array('chat_id' => $chat_id, 'reply_markup' => $keyb, 'text' =>  'Siz Lacetti tanladingiz!!!');
     $telegram->sendMessage($content);

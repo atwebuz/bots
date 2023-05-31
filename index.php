@@ -7,6 +7,7 @@ $telegram = new Telegram('6077714195:AAG6CEXyLZjuBU08G2H5-GNr_-AE7KjVhDM');
 $chat_id = $telegram->ChatID();
 $text = $telegram->Text();
 
+file_put_contents('users/step.txt', '1');
 
 $orderTypes = [
     'Laccetti 15000$',
@@ -15,29 +16,21 @@ $orderTypes = [
     'Cobalt 8300$'
 ];
 
-if ($text == '/start'){
-    showStart();
-}
-elseif ($text == '🗣 Batafsil malumot'){
-    showAbout();
-}
-elseif ($text == '👨‍💻 Buyurtma berish'){
-    showOrder();
-}
-// elseif ($text == 'Laccetti 15000$'){
-//     askContact();
-// }
-// elseif ($text == 'Matiz 4900$'){
-//     askContact();
-// }
-// elseif ($text == 'Spark 7300$'){
-//     askContact();
-// }
-// elseif ($text == 'Cobalt 8300$'){
-//     askContact();
-// }
-elseif (in_array($text, $orderTypes)){
-    askContact();
+switch ($text){
+    case "/start":
+        showStart();
+        break;
+    case "🗣 Batafsil malumot":
+        showAbout();
+        break;
+    case "👨‍💻 Buyurtma berish":
+        showOrder();
+        break;
+    default:
+        if (in_array($text, $orderTypes)){
+                askContact();
+        }
+        break;
 }
 
 

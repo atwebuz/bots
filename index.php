@@ -38,7 +38,7 @@ switch ($text){
         showOrder();
         break;
     case "Orqaga":
-        switch(file_get_contents($fileFath)){
+        switch(file_get_contents('users/stap.txt')){
             case 'start':
              break;
             case 'order':

@@ -47,10 +47,37 @@ elseif ($text == '👨‍💻 Buyurtma berish'){
 }
 elseif ($text == 'Laccetti 15000$'){
     $option = array(
-        array($telegram->buildKeyboardButton("☎️ Kontakt yuborish")),
+        array($telegram->buildKeyboardButton("☎️ Kontakt yuborish", true)),
     );
     $keyb = $telegram->buildKeyBoard($option, $onetime=true,$resize=true);
    
     $content = array('chat_id' => $chat_id, 'reply_markup' => $keyb, 'text' =>  'Siz Lacetti tanladingiz!!!');
+    $telegram->sendMessage($content);
+}
+elseif ($text == 'Matiz 4900$'){
+    $option = array(
+        array($telegram->buildKeyboardButton("☎️ Kontakt yuborish", true)),
+    );
+    $keyb = $telegram->buildKeyBoard($option, $onetime=true,$resize=true);
+   
+    $content = array('chat_id' => $chat_id, 'reply_markup' => $keyb, 'text' =>  'Siz Matiz tanladingiz!!!');
+    $telegram->sendMessage($content);
+}
+elseif ($text == 'Spark 7300$'){
+    $option = array(
+        array($telegram->buildKeyboardButton("☎️ Kontakt yuborish", true)),
+    );
+    $keyb = $telegram->buildKeyBoard($option, $onetime=true,$resize=true);
+   
+    $content = array('chat_id' => $chat_id, 'reply_markup' => $keyb, 'text' =>  'Siz Spark tanladingiz!!!');
+    $telegram->sendMessage($content);
+}
+elseif ($text == 'Cobalt 8300$'){
+    $option = array(
+        array($telegram->buildKeyboardButton("☎️ Kontakt yuborish", true)),
+    );
+    $keyb = $telegram->buildKeyBoard($option, $onetime=true,$resize=true);
+   
+    $content = array('chat_id' => $chat_id, 'reply_markup' => $keyb, 'text' =>  'Siz Cobalt tanladingiz!!!');
     $telegram->sendMessage($content);
 }

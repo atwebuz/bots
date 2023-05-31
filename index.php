@@ -3,15 +3,15 @@
 include 'Telegram.php';
 
 $telegram = new Telegram('6077714195:AAG6CEXyLZjuBU08G2H5-GNr_-AE7KjVhDM');
-$message = $data['message'];
 $data = $telegram->getData();
+$message = $data['message'];
 // $telegram->sendMessage([
 //     'chat_id' => $telegram->ChatID(),
 //     'text' => json_encode($data, JSON_PRETTY_PRINT)
 // ]);
 
 $text = $data['message']['text'];
-$chat_id = $data['message']['chat']['id'];
+$chat_id = $message['chat']['id'];
 
 // $chat_id = $telegram->ChatID();
 // $text = $telegram->Text();

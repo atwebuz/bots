@@ -3,7 +3,7 @@
 include 'Telegram.php';
 
 $telegram = new Telegram('6077714195:AAG6CEXyLZjuBU08G2H5-GNr_-AE7KjVhDM');
-$fileFath = 'users/stap.txt';
+// $fileFath = 'users/stap.txt';
 
 
 $data = $telegram->getData();
@@ -37,17 +37,16 @@ switch ($text){
     case "👨‍💻 Buyurtma berish":
         showOrder();
         break;
-    // case "Orqaga":
-    //     switch(file_get_contents($fileFath)){
-    //       case 'start':
-    //         break;
-    //         case 'order':
-    //             showStart();
-    //             break;
-
-
-    //     }
-    //     break;    
+    case "Orqaga":
+        switch(file_get_contents($fileFath)){
+            case 'start':
+             break;
+            case 'order':
+                showStart();
+            break;
+            default;
+        }
+        break;    
     default:
         if (in_array($text, $orderTypes)){
             file_put_contents('users/mass.txt', $text);
@@ -98,9 +97,9 @@ function showAbout(){
 }
 
 function showOrder(){
-    global $telegram, $chat_id, $fileFath;
+    global $telegram, $chat_id;
 
-    file_put_contents($fileFath, 'order');
+    file_put_contents('users/phone.txt', 'order');
     $option = array(
         //First row
         array($telegram->buildKeyboardButton("Laccetti 15000$")),

@@ -29,7 +29,7 @@ if ($text == '/start'){
     $telegram->sendMessage($content);
 }
 elseif ($text == '👨‍💻 Buyurtma berish'){
-    $option = array(
+    $option_1 = array(
         //First row
         array($telegram->buildKeyboardButton("button 1")),
         //Second row 
@@ -37,8 +37,8 @@ elseif ($text == '👨‍💻 Buyurtma berish'){
         //Third row
         array($telegram->buildKeyboardButton("button 3")),
         //Fourth row 
-        array($telegram->buildKeyboardButton("button 4")), 
+        array($telegram->buildKeyboardButton("button 4"))
     );
-    $keyb = $telegram->buildKeyBoard($option, $onetime=false,$resize=true);
+    $keyb = $telegram->buildKeyBoard($option_1, $onetime=true,$resize=true);
    
 }

@@ -8,10 +8,10 @@ $fileFath = 'users/stap.txt';
 
 $data = $telegram->getData();
 $message = $data['message'];
-// $telegram->sendMessage([
-//     'chat_id' => $telegram->ChatID(),
-//     'text' => json_encode($data, JSON_PRETTY_PRINT)
-// ]);
+$telegram->sendMessage([
+    'chat_id' => $telegram->ChatID(),
+    'text' => json_encode($data, JSON_PRETTY_PRINT)
+]);
 
 $text = $data['message']['text'];
 $chat_id = $message['chat']['id'];
@@ -37,17 +37,17 @@ switch ($text){
     case "👨‍💻 Buyurtma berish":
         showOrder();
         break;
-    case "Orqaga":
-        switch(file_get_contents($fileFath)){
-          case 'start':
-            break;
-            case 'order':
-                showStart();
-                break;
+    // case "Orqaga":
+    //     switch(file_get_contents($fileFath)){
+    //       case 'start':
+    //         break;
+    //         case 'order':
+    //             showStart();
+    //             break;
 
 
-        }
-        break;    
+    //     }
+    //     break;    
     default:
         if (in_array($text, $orderTypes)){
             file_put_contents('users/mass.txt', $text);

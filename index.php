@@ -29,7 +29,7 @@ if ($text == '/start'){
     $telegram->sendMessage($content);
 }
 elseif ('👨‍💻 Buyurtma berish'){
-    $option_1 = array(
+    $option = array(
         //First row
         array($telegram->buildKeyboardButton("button 1")),
         //Second row 
@@ -39,6 +39,8 @@ elseif ('👨‍💻 Buyurtma berish'){
         //Fourth row 
         array($telegram->buildKeyboardButton("button 4"))
     );
-    $keyb = $telegram->buildKeyBoard($option_1, $onetime=true,$resize=true);
+    $keyb = $telegram->buildKeyBoard($option, $onetime=true,$resize=true);
    
+    $content = array('chat_id' => $chat_id,  'text' =>  'Assalomu aleykum auto shop botiga xush kelibsiz !!!');
+    $telegram->sendMessage($content);
 }

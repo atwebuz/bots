@@ -45,13 +45,13 @@ elseif ("👨‍💻 Buyurtma berish"){
     $content = array('chat_id' => $chat_id, 'reply_markup' => $keyb, 'text' =>  'Buyurtma berish uchun avtomabil turini tanlang !!!');
     $telegram->sendMessage($content);
 }
-// elseif ($text == 'Laccetti 15000$'){
+elseif ($text == 'Laccetti 15000$'){
 
-//     $option = array(
-//         array($telegram->buildKeyboardButton("Raqamni jonatish", request_contact: true)),
-//     );
-//     $keyb = $telegram->buildKeyBoard($option, $onetime=true,$resize=true);
+    $option = array(
+        array($telegram->buildKeyboardButton("Raqamni jonatish", true)),
+    );
+    $keyb = $telegram->buildKeyBoard($option, $onetime=true,$resize=true);
    
-//     $content = array('chat_id' => $chat_id, 'reply_markup' => $keyb, 'text' =>  "Hajm tanlandi endi telefon raqamingizni yuboring");
-//     $telegram->sendMessage($content);
-// }
+    $content = array('chat_id' => $chat_id, 'reply_markup' => $keyb, 'text' =>  "Hajm tanlandi endi telefon raqamingizni yuboring");
+    $telegram->sendMessage($content);
+}

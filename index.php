@@ -16,12 +16,15 @@ if ($text == '/start'){
         //Second row 
         array($telegram->buildKeyboardButton("👨‍💻 Buyurtma berish"))
     );
-    $keyb = $telegram->buildKeyBoard($option, $onetime=false);
+    $keyb = $telegram->buildKeyBoard($option, $onetime=false,$resize=true);
    
 
     $content = array('chat_id' => $chat_id,  'text' =>  'Assalomu aleykum auto shop botiga xush kelibsiz !!!');
     $telegram->sendMessage($content);
 
     $content = array('chat_id' => $chat_id, 'reply_markup' => $keyb, 'text' =>  'Biz bilan boling va yetuk marralarga erishing.');
+    $telegram->sendMessage($content);
+}elseif ($text == '🗣 Batafsil malumot'){
+    $content = array('chat_id' => $chat_id,  'text' =>  "Biz xaqimizda malumot. <a href='https://telegra.ph/Biz-xaqimizda-05-31'>Havolani ko'rish</a>", "parse_mode" => "html");
     $telegram->sendMessage($content);
 }

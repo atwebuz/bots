@@ -9,6 +9,9 @@ $text = $telegram->Text();
 
 
 if ($text == '/start'){
-    $content = array('chat_id' => $chat_id, 'text' =>  'Salom botmzga xush kelbsz!');
+    $content = array('chat_id' => $chat_id, 'text' =>  'Assalomu aleykum auto shop botiga xush kelibsiz !!!');
+    $telegram->sendMessage($content);
+
+    $content = array('chat_id' => $chat_id, 'text' =>  'Biz bilan boling va yetuk marralarga erishing.');
     $telegram->sendMessage($content);
 }
